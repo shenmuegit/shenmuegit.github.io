@@ -1,4 +1,27 @@
+---
+layout: default
+title: Spring Cloud Config
+parent: 配置中心
+grand_parent: Spring Cloud 教程
+nav_order: 1
+---
+
 # Spring Cloud Config
+
+> 📊 **难度**：🟡 进阶 | ⏱️ **阅读时间**：30 分钟
+> 
+> 📝 **本章摘要**：学习 Spring Cloud Config 配置中心，实现配置的集中管理、动态刷新和加密。
+
+## 🎯 学习目标
+
+学完本章后，你将能够：
+- 创建 Config Server
+- 配置 Git/本地存储
+- 创建 Config Client
+- 实现配置动态刷新
+- 配置加密
+
+---
 
 ## Config Server 简介
 
@@ -391,5 +414,13 @@ spring:
 
 ## 下一步
 
-配置中心实现了配置的集中管理。接下来我们将学习 API 网关，实现统一的请求入口。请继续学习下一章节：[Spring Cloud Gateway](../05-服务网关/01-Spring-Cloud-Gateway.md)。
+配置中心实现了配置的集中管理。接下来我们将学习 API 网关，实现统一的请求入口。
+
+---
+
+<div align="center">
+
+⬅️ [上一章：Eureka 服务提供者与消费者](../03-服务注册与发现/02-Eureka-服务提供者与消费者.md) | 🏠 [返回目录](../../../README.md) | [下一章：Spring Cloud Gateway](../05-服务网关/01-Spring-Cloud-Gateway.md) ➡️
+
+</div>
 

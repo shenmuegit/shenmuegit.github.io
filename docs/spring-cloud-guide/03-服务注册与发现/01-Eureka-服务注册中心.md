@@ -1,4 +1,27 @@
+---
+layout: default
+title: Eureka 服务注册中心
+parent: 服务注册与发现
+grand_parent: Spring Cloud 教程
+nav_order: 1
+---
+
 # Eureka 服务注册中心
+
+> 📊 **难度**：🟡 进阶 | ⏱️ **阅读时间**：30 分钟
+> 
+> 📝 **本章摘要**：学习 Eureka 服务注册中心的原理，创建和配置 Eureka Server，理解服务注册流程。
+
+## 🎯 学习目标
+
+学完本章后，你将能够：
+- 理解服务注册与发现的原理
+- 创建 Eureka Server
+- 配置 Eureka Server（单机/集群）
+- 访问 Eureka Dashboard
+- 理解自我保护机制
+
+---
 
 ## Eureka 简介
 
@@ -217,5 +240,13 @@ eureka:
 
 ## 下一步
 
-Eureka Server 创建完成后，我们需要创建服务提供者和消费者，让它们注册到 Eureka Server。请继续学习下一章节：[Eureka 服务提供者与消费者](./02-Eureka-服务提供者与消费者.md)。
+Eureka Server 创建完成后，我们需要创建服务提供者和消费者，让它们注册到 Eureka Server。
+
+---
+
+<div align="center">
+
+⬅️ [上一章：项目初始化](../02-环境搭建/02-项目初始化.md) | 🏠 [返回目录](../../../README.md) | [下一章：Eureka 服务提供者与消费者](./02-Eureka-服务提供者与消费者.md) ➡️
+
+</div>
 

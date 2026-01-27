@@ -1,4 +1,27 @@
+---
+layout: default
+title: Eureka 服务提供者与消费者
+parent: 服务注册与发现
+grand_parent: Spring Cloud 教程
+nav_order: 2
+---
+
 # Eureka 服务提供者与消费者
+
+> 📊 **难度**：🟡 进阶 | ⏱️ **阅读时间**：35 分钟
+> 
+> 📝 **本章摘要**：创建服务提供者和消费者，将服务注册到 Eureka，实现服务发现和负载均衡调用。
+
+## 🎯 学习目标
+
+学完本章后，你将能够：
+- 创建服务提供者并注册到 Eureka
+- 创建服务消费者
+- 使用 RestTemplate 调用服务
+- 配置负载均衡
+- 使用 DiscoveryClient 获取服务信息
+
+---
 
 ## 服务提供者（Provider）
 
@@ -408,5 +431,13 @@ eureka:
 
 ## 下一步
 
-服务注册与发现是微服务架构的基础。接下来我们将学习配置中心，实现配置的集中管理。请继续学习下一章节：[Spring Cloud Config](../04-配置中心/01-Spring-Cloud-Config.md)。
+服务注册与发现是微服务架构的基础。接下来我们将学习配置中心，实现配置的集中管理。
+
+---
+
+<div align="center">
+
+⬅️ [上一章：Eureka 服务注册中心](./01-Eureka-服务注册中心.md) | 🏠 [返回目录](../../../README.md) | [下一章：Spring Cloud Config](../04-配置中心/01-Spring-Cloud-Config.md) ➡️
+
+</div>
 

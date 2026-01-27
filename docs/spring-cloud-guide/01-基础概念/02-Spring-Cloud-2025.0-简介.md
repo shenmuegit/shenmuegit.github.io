@@ -1,4 +1,26 @@
+---
+layout: default
+title: Spring Cloud 2025.0 简介
+parent: 基础概念
+grand_parent: Spring Cloud 教程
+nav_order: 2
+---
+
 # Spring Cloud 2025.0 简介
+
+> 📊 **难度**：🟢 入门 | ⏱️ **阅读时间**：20 分钟
+> 
+> 📝 **本章摘要**：介绍 Spring Cloud 生态系统、2025.0 版本新特性、核心组件和版本兼容性。
+
+## 🎯 学习目标
+
+学完本章后，你将能够：
+- 了解 Spring Cloud 的整体生态系统
+- 理解 Spring Cloud 2025.0 的新特性
+- 熟悉各个核心组件的功能
+- 掌握版本兼容性要求
+
+---
 
 ## Spring Cloud 概述
 
@@ -147,3 +169,10 @@ Spring Cloud 2025.0 是一个功能强大、生态完善的微服务开发框架
 
 让我们开始 Spring Cloud 的学习之旅吧！
 
+---
+
+<div align="center">
+
+⬅️ [上一章：微服务架构概念](./01-微服务架构概念.md) | 🏠 [返回目录](../../../README.md) | [下一章：开发环境准备](../02-环境搭建/01-开发环境准备.md) ➡️
+
+</div>

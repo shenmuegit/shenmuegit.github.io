@@ -1,0 +1,182 @@
+// 自定义样式 - Spring Cloud 2025.0 新手引导
+
+// 难度标签颜色
+.difficulty-beginner {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.difficulty-intermediate {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.difficulty-advanced {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+// 元数据块样式
+blockquote {
+  border-left: 4px solid #4051b5;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  margin: 1rem 0;
+  
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+// 学习目标列表样式
+.learning-objectives {
+  background-color: #e7f3ff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+// 章节导航样式
+.chapter-nav {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #e9ecef;
+  
+  a {
+    margin: 0 1rem;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// 学习路线图样式
+.roadmap {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  
+  pre {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+// 代码块优化
+pre.highlight {
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+// 提示框样式
+.tip {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.danger {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+// 徽章样式
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  
+  &.badge-beginner {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  &.badge-intermediate {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  &.badge-advanced {
+    background-color: #dc3545;
+    color: white;
+  }
+}
+
+// 阶段卡片样式
+.stage-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// 进度指示器
+.progress-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  
+  .step {
+    text-align: center;
+    flex: 1;
+    
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #4051b5;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+    }
+    
+    .step-label {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+  }
+  
+  .step-connector {
+    flex: 0.5;
+    height: 2px;
+    background-color: #e9ecef;
+  }
+}
+

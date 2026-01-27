@@ -1,4 +1,27 @@
+---
+layout: default
+title: OpenFeign 声明式服务调用
+parent: 服务调用
+grand_parent: Spring Cloud 教程
+nav_order: 1
+---
+
 # OpenFeign 声明式服务调用
+
+> 📊 **难度**：🟡 进阶 | ⏱️ **阅读时间**：30 分钟
+> 
+> 📝 **本章摘要**：学习 OpenFeign 声明式服务调用，简化微服务间的 HTTP 通信。
+
+## 🎯 学习目标
+
+学完本章后，你将能够：
+- 创建 Feign 客户端接口
+- 配置超时和重试
+- 传递请求头
+- 处理错误和降级
+- 集成负载均衡
+
+---
 
 ## OpenFeign 简介
 
@@ -461,5 +484,13 @@ public interface ProviderClient {
 
 ## 下一步
 
-服务调用是微服务间通信的基础。接下来我们将学习熔断降级，提高系统的容错能力。请继续学习下一章节：[Resilience4j 熔断器](../07-熔断降级/01-Resilience4j-熔断器.md)。
+服务调用是微服务间通信的基础。接下来我们将学习熔断降级，提高系统的容错能力。
+
+---
+
+<div align="center">
+
+⬅️ [上一章：Spring Cloud Gateway](../05-服务网关/01-Spring-Cloud-Gateway.md) | 🏠 [返回目录](../../../README.md) | [下一章：Resilience4j 熔断器](../07-熔断降级/01-Resilience4j-熔断器.md) ➡️
+
+</div>
 

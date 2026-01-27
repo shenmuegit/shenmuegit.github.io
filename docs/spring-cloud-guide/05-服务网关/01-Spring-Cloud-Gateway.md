@@ -1,4 +1,27 @@
+---
+layout: default
+title: Spring Cloud Gateway
+parent: 服务网关
+grand_parent: Spring Cloud 教程
+nav_order: 1
+---
+
 # Spring Cloud Gateway
+
+> 📊 **难度**：🟡 进阶 | ⏱️ **阅读时间**：35 分钟
+> 
+> 📝 **本章摘要**：学习 Spring Cloud Gateway API 网关，配置路由规则、过滤器、限流和跨域。
+
+## 🎯 学习目标
+
+学完本章后，你将能够：
+- 理解 API 网关的作用
+- 创建 Gateway 服务
+- 配置路由规则
+- 使用内置和自定义过滤器
+- 配置限流和跨域
+
+---
 
 ## Gateway 简介
 
@@ -503,5 +526,13 @@ management:
 
 ## 下一步
 
-API 网关实现了统一的请求入口。接下来我们将学习服务调用，使用 OpenFeign 简化服务间调用。请继续学习下一章节：[OpenFeign 声明式服务调用](../06-服务调用/01-OpenFeign-声明式服务调用.md)。
+API 网关实现了统一的请求入口。接下来我们将学习服务调用，使用 OpenFeign 简化服务间调用。
+
+---
+
+<div align="center">
+
+⬅️ [上一章：Spring Cloud Config](../04-配置中心/01-Spring-Cloud-Config.md) | 🏠 [返回目录](../../../README.md) | [下一章：OpenFeign 声明式服务调用](../06-服务调用/01-OpenFeign-声明式服务调用.md) ➡️
+
+</div>
 

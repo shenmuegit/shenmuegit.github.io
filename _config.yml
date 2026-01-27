@@ -1,9 +1,50 @@
 title: Spring Cloud 2025.0 新手引导
 description: 从零开始学习 Spring Cloud 2025.0 微服务架构
-theme: minima
+
+remote_theme: just-the-docs/just-the-docs
+
+# 颜色方案
+color_scheme: light
+
+# 搜索功能（已禁用）
+search_enabled: false
+
+# 标题锚点
+heading_anchors: true
+
+# 返回顶部按钮
+back_to_top: true
+back_to_top_text: "返回顶部"
+
+# 导航排序
+nav_sort: case_insensitive
+
+# 页脚
+footer_content: "Copyright &copy; 2025 Spring Cloud 2025.0 新手引导. 基于 <a href=\"https://github.com/just-the-docs/just-the-docs\">Just the Docs</a> 主题."
+
+# 辅助链接
+aux_links:
+  "GitHub":
+    - "https://github.com/meolord/blog"
+
+aux_links_new_tab: true
+
+# 插件
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-markdown: kramdown
-highlighter: rouge
 
+# Markdown 处理器
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# 排除文件
+exclude:
+  - node_modules/
+  - vendor/
+  - .gitignore
+  - README.md
