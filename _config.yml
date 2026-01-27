@@ -1,0 +1,9 @@
+title: Spring Cloud 2025.0 新手引导
+description: 从零开始学习 Spring Cloud 2025.0 微服务架构
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+markdown: kramdown
+highlighter: rouge
+
