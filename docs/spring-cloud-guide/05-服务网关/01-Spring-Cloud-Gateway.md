@@ -530,9 +530,7 @@ API 网关实现了统一的请求入口。接下来我们将学习服务调用�
 
 ---
 
-<div align="center">
-
-⬅️ [上一章：Spring Cloud Config](../04-配置中心/01-Spring-Cloud-Config.md) | 🏠 [返回目录](../../../README.md) | [下一章：OpenFeign 声明式服务调用](../06-服务调用/01-OpenFeign-声明式服务调用.md) ➡️
-
-</div>
+| ⬅️ 上一章 | 🏠 目录 | 下一章 ➡️ |
+|:----------|:------:|----------:|
+| [Spring Cloud Config](../04-配置中心/01-Spring-Cloud-Config.md) | [返回目录](../../../) | [OpenFeign 声明式服务调用](../06-服务调用/01-OpenFeign-声明式服务调用.md) |
 

@@ -488,9 +488,7 @@ public interface ProviderClient {
 
 ---
 
-<div align="center">
-
-⬅️ [上一章：Spring Cloud Gateway](../05-服务网关/01-Spring-Cloud-Gateway.md) | 🏠 [返回目录](../../../README.md) | [下一章：Resilience4j 熔断器](../07-熔断降级/01-Resilience4j-熔断器.md) ➡️
-
-</div>
+| ⬅️ 上一章 | 🏠 目录 | 下一章 ➡️ |
+|:----------|:------:|----------:|
+| [Spring Cloud Gateway](../05-服务网关/01-Spring-Cloud-Gateway.md) | [返回目录](../../../) | [Resilience4j 熔断器](../07-熔断降级/01-Resilience4j-熔断器.md) |
 
