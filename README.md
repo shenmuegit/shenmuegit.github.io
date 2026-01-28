@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/系列数-4-blue" alt="系列数">
-  <img src="https://img.shields.io/badge/总文章-22篇-green" alt="总文章">
-  <img src="https://img.shields.io/badge/总时长-12.5小时-orange" alt="总时长">
+  <img src="https://img.shields.io/badge/系列数-5-blue" alt="系列数">
+  <img src="https://img.shields.io/badge/总文章-40篇-green" alt="总文章">
+  <img src="https://img.shields.io/badge/总时长-24.5小时-orange" alt="总时长">
 </p>
 
 ---
@@ -138,6 +138,37 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 
 ---
 
+### ☕ Java 技术生态演进
+
+<table>
+<tr>
+<td width="120"><strong>📊 难度</strong></td>
+<td>🟢 入门 ~ 🔴 高级</td>
+</tr>
+<tr>
+<td><strong>📚 文章数</strong></td>
+<td>18 篇</td>
+</tr>
+<tr>
+<td><strong>⏱️ 总时长</strong></td>
+<td>12 小时</td>
+</tr>
+<tr>
+<td><strong>🎯 适合人群</strong></td>
+<td>Java 开发者、架构师</td>
+</tr>
+</table>
+
+从 JDK 1.5 到 JDK 21，深入介绍 Java 后端技术生态 20 年的演进历程。涵盖语言特性、框架演进、工程化实践与部署方式的全面变革，揭示技术演进的内在规律。
+
+<p align="center">
+  <a href="./java-evolution/README.md">
+    <strong>📖 开始学习 Java 技术生态演进 →</strong>
+  </a>
+</p>
+
+---
+
 ## 📋 系列一览
 
 | 系列 | 难度 | 文章数 | 时长 | 状态 |
@@ -146,6 +177,7 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 | [MyBatis 源码深度解析](./mybatis-source/README.md) | 🔴 | 5 | 3h | ✅ 完成 |
 | [Prometheus 告警规则深度解析](./prometheus-alerts/README.md) | 🟡 | 1 | 45min | ✅ 完成 |
 | [可观测性实战](./observability/README.md) | 🟡 | 3 | 1.25h | ✅ 完成 |
+| [Java 技术生态演进](./java-evolution/README.md) | 🟢~🔴 | 18 | 12h | ✅ 完成 |
 
 ---
 
@@ -211,4 +243,6 @@ open http://localhost:4000
   <a href="./prometheus-alerts/README.md">Prometheus 告警 →</a>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="./observability/README.md">可观测性实战 →</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="./java-evolution/README.md">Java 技术演进 →</a>
 </p>
