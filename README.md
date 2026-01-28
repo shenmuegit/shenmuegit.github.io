@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/系列数-2-blue" alt="系列数">
-  <img src="https://img.shields.io/badge/总文章-18篇-green" alt="总文章">
-  <img src="https://img.shields.io/badge/总时长-10.5小时-orange" alt="总时长">
+  <img src="https://img.shields.io/badge/系列数-3-blue" alt="系列数">
+  <img src="https://img.shields.io/badge/总文章-19篇-green" alt="总文章">
+  <img src="https://img.shields.io/badge/总时长-11.25小时-orange" alt="总时长">
 </p>
 
 ---
@@ -76,12 +76,44 @@
 
 ---
 
+### 🔔 Prometheus 告警规则深度解析
+
+<table>
+<tr>
+<td width="120"><strong>📊 难度</strong></td>
+<td>🟡 进阶</td>
+</tr>
+<tr>
+<td><strong>📚 文章数</strong></td>
+<td>1 篇</td>
+</tr>
+<tr>
+<td><strong>⏱️ 总时长</strong></td>
+<td>45 分钟</td>
+</tr>
+<tr>
+<td><strong>🎯 适合人群</strong></td>
+<td>运维工程师、DevOps、后端开发者</td>
+</tr>
+</table>
+
+深入解析 24 条常用 Prometheus 告警规则，涵盖主机、容器、JVM、Kubernetes 等监控维度。详解 PromQL 表达式设计原理与调优建议。
+
+<p align="center">
+  <a href="./prometheus-alerts/README.md">
+    <strong>📖 开始学习 Prometheus 告警 →</strong>
+  </a>
+</p>
+
+---
+
 ## 📋 系列一览
 
 | 系列 | 难度 | 文章数 | 时长 | 状态 |
 |------|:----:|:------:|:----:|:----:|
 | [Spring Cloud 2025.0 新手引导](./spring-cloud-guide/README.md) | 🟢~🔴 | 13 | 7.5h | ✅ 完成 |
 | [MyBatis 源码深度解析](./mybatis-source/README.md) | 🔴 | 5 | 3h | ✅ 完成 |
+| [Prometheus 告警规则深度解析](./prometheus-alerts/README.md) | 🟡 | 1 | 45min | ✅ 完成 |
 
 ---
 
@@ -100,6 +132,7 @@
 - **Spring Boot** 3.2.x
 - **Spring Cloud** 2025.0
 - **MyBatis** 3.5.x
+- **Prometheus** 2.x
 - **Java** 17+
 
 ---
@@ -140,4 +173,6 @@ open http://localhost:4000
   <a href="./spring-cloud-guide/README.md">Spring Cloud →</a>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="./mybatis-source/README.md">MyBatis 源码 →</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="./prometheus-alerts/README.md">Prometheus 告警 →</a>
 </p>
