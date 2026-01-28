@@ -34,7 +34,7 @@ timeline
 
 ---
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - ✅ 理解 JVM 启动时间和内存问题
 - ✅ 了解 GraalVM 和 Native Image 的原理

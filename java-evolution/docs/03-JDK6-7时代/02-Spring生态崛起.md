@@ -38,7 +38,7 @@ timeline
 
 ---
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - ✅ 理解 Spring 从 XML 到注解的演进历程
 - ✅ 掌握 Spring 2.5 注解驱动的核心概念
@@ -241,7 +241,7 @@ public class AppConfig {
 | 类型安全 | 编译期检查，IDE 提示 |
 | 重构友好 | 改名自动同步 |
 | 条件化配置 | 可以使用 if/for 逻辑 |
-| 无需学习 XML Schema | Java 开发者更熟悉 |
+| 无需掌握 XML Schema | Java 开发者更熟悉 |
 
 ---
 

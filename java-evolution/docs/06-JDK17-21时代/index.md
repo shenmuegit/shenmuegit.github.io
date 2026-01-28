@@ -17,7 +17,7 @@ permalink: /java-evolution/docs/06-JDK17-21时代/
 - [虚拟线程革命](./02-虚拟线程革命.md) - Project Loom
 - [GraalVM与Native](./03-GraalVM与Native.md) - AOT 编译与 Native Image
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - 掌握 Record、Sealed Classes 等现代语法
 - 深入理解虚拟线程的原理与优势

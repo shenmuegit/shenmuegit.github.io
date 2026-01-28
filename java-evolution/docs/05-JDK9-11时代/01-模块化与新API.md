@@ -35,7 +35,7 @@ timeline
 
 ---
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - ✅ 理解 Java 模块化的背景与目标
 - ✅ 掌握 module-info.java 的基本语法

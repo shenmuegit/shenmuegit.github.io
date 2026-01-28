@@ -38,7 +38,7 @@ timeline
 
 ---
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - ✅ 理解 Servlet 时代的 Web 开发痛点
 - ✅ 了解 Struts、Spring、Hibernate 各自解决的问题
@@ -691,7 +691,7 @@ Rod Johnson 的理念："J2EE 不需要 EJB"，倡导 POJO（Plain Old Java Obje
 **SSH 的成功原因**：
 1. 解决了实际痛点（MVC、IoC、ORM）
 2. 开源免费，社区活跃
-3. 学习资料丰富
+3. 技术资料丰富
 
 **SSH 被淘汰的原因**：
 1. Struts 1.x 设计缺陷（ActionForm 笨重、线程不安全）

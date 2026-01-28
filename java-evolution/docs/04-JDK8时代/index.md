@@ -17,7 +17,7 @@ JDK 8 是 Java 历史上最重要的版本之一，Lambda 表达式和 Stream AP
 - [Spring Boot破茧而出](./02-SpringBoot破茧而出.md) - 自动配置与约定优于配置
 - [微服务框架涌现](./03-微服务框架涌现.md) - Dubbo 与 Spring Cloud
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - 理解 Lambda 表达式的设计动机与核心语法
 - 掌握 Stream API 的使用与原理

@@ -17,7 +17,7 @@ JDK 1.5（也称为 Java 5）是 Java 历史上变化最大的版本，奠定了
 - [并发编程基石](./02-并发编程基石.md) - java.util.concurrent 包
 - [SSH框架黄金组合](./03-SSH框架黄金组合.md) - Struts + Spring + Hibernate
 
-## 🎯 学习目标
+## 🎯 了解目标
 
 - 理解泛型的设计动机与类型擦除机制
 - 掌握注解系统的核心概念
