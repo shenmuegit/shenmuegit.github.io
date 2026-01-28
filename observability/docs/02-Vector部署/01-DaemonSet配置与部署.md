@@ -70,19 +70,19 @@ graph TB
         subgraph Node1[Node 1]
             VP1[Vector Pod]
             APP1[App Pods]
-            LOG1[/var/logs/]
+            LOG1[日志目录]
         end
         
         subgraph Node2[Node 2]
             VP2[Vector Pod]
             APP2[App Pods]
-            LOG2[/var/logs/]
+            LOG2[日志目录]
         end
         
         subgraph Node3[Node 3]
             VP3[Vector Pod]
             APP3[App Pods]
-            LOG3[/var/logs/]
+            LOG3[日志目录]
         end
     end
     
@@ -288,15 +288,15 @@ INFO vector::sinks::http: Healthcheck passed.
 ```mermaid
 flowchart LR
     subgraph Sources
-        A[file source<br/>application_logs]
+        A[file source]
     end
     
     subgraph Transforms
-        B[remap transform<br/>parse_json]
+        B[remap transform]
     end
     
     subgraph Sinks
-        C[http sink<br/>openobserve]
+        C[http sink]
     end
     
     A -->|原始日志| B
