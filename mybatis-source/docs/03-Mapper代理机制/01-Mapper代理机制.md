@@ -131,15 +131,15 @@ sequenceDiagram
     participant MM as MapperMethod
     participant SS as SqlSession
 
-    C->>MP: selectById(1)
-    MP->>MMI: cachedInvoker()
-    MP->>MMI: invoke()
-    MMI->>MM: execute()
-    MM->>SS: selectOne()
+    C->>MP: selectById
+    MP->>MMI: cachedInvoker
+    MP->>MMI: invoke
+    MMI->>MM: execute
+    MM->>SS: selectOne
     SS-->>MM: Result
     MM-->>MMI: Result
     MMI-->>MP: Result
-    MP-->>C: User 对象
+    MP-->>C: User对象
 ```
 
 ---
