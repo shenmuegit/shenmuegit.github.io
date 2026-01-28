@@ -1,3 +1,11 @@
+---
+layout: default
+title: MyBatis 全局架构
+parent: 全局架构概览
+grand_parent: MyBatis 源码教程
+nav_order: 1
+---
+
 # MyBatis 全局架构概览
 
 > 📊 **难度**：🔴 高级 | ⏱️ **阅读时间**：25 分钟

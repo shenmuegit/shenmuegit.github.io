@@ -1,3 +1,11 @@
+---
+layout: default
+title: Mapper 代理机制详解
+parent: Mapper 代理机制
+grand_parent: MyBatis 源码教程
+nav_order: 1
+---
+
 # Mapper 代理机制
 
 > 📊 **难度**：🔴 高级 | ⏱️ **阅读时间**：35 分钟
