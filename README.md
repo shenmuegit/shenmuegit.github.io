@@ -1,116 +1,87 @@
-# 🚀 Spring Cloud 2025.0 新手引导
+# 🏠 技术博客
 
 <p align="center">
-  <img src="https://img.shields.io/badge/难度-入门到高级-blue" alt="难度">
-  <img src="https://img.shields.io/badge/总时长-7.5小时-green" alt="总时长">
-  <img src="https://img.shields.io/badge/章节数-13章-orange" alt="章节数">
-  <img src="https://img.shields.io/badge/Spring%20Cloud-2025.0-brightgreen" alt="Spring Cloud">
+  <strong>深入学习，持续成长</strong>
 </p>
 
-欢迎来到 Spring Cloud 2025.0 新手引导！本教程将从零开始，带你全面了解和学习 Spring Cloud 微服务架构。
+<p align="center">
+  <img src="https://img.shields.io/badge/系列数-2-blue" alt="系列数">
+  <img src="https://img.shields.io/badge/总文章-18篇-green" alt="总文章">
+  <img src="https://img.shields.io/badge/总时长-10.5小时-orange" alt="总时长">
+</p>
 
 ---
 
-## 📍 学习路线图
+## 📚 教程系列
 
-按照以下阶段循序渐进学习，掌握 Spring Cloud 微服务开发：
+### 🌩️ Spring Cloud 2025.0 新手引导
 
-### 🌱 第一阶段：入门基础
+<table>
+<tr>
+<td width="120"><strong>📊 难度</strong></td>
+<td>🟢 入门 ~ 🔴 高级</td>
+</tr>
+<tr>
+<td><strong>📚 章节数</strong></td>
+<td>13 章</td>
+</tr>
+<tr>
+<td><strong>⏱️ 总时长</strong></td>
+<td>7.5 小时</td>
+</tr>
+<tr>
+<td><strong>🎯 适合人群</strong></td>
+<td>Java 开发者、微服务初学者</td>
+</tr>
+</table>
 
-| 阶段目标 | 了解微服务架构和 Spring Cloud 生态系统 |
-|:---------|:--------------------------------------|
-| 📚 章节数 | 2 章 |
-| ⏱️ 预计时长 | 35 分钟 |
-| 🎯 难度 | 🟢 入门 |
+从零开始学习 Spring Cloud 2025.0 微服务架构。涵盖 Eureka、Config、Gateway、OpenFeign、Resilience4j 等核心组件，最终完成一个完整的电商微服务项目。
 
-### 🔧 第二阶段：环境搭建
-
-| 阶段目标 | 配置开发环境，创建第一个 Spring Cloud 项目 |
-|:---------|:------------------------------------------|
-| 📚 章节数 | 2 章 |
-| ⏱️ 预计时长 | 45 分钟 |
-| 🎯 难度 | 🟢 入门 |
-
-### 📦 第三阶段：核心组件
-
-| 阶段目标 | 掌握服务注册、配置中心、网关、Feign、熔断、追踪 |
-|:---------|:----------------------------------------------|
-| 📚 章节数 | 8 章 |
-| ⏱️ 预计时长 | 4.5 小时 |
-| 🎯 难度 | 🟡 进阶 ~ 🔴 高级 |
-
-### 🎯 第四阶段：实战项目
-
-| 阶段目标 | 综合运用所学，完成完整的电商微服务系统 |
-|:---------|:---------------------------------------|
-| 📚 章节数 | 1 章 |
-| ⏱️ 预计时长 | 2 小时 |
-| 🎯 难度 | 🔴 高级 |
+<p align="center">
+  <a href="./spring-cloud-guide/README.md">
+    <strong>📖 开始学习 Spring Cloud →</strong>
+  </a>
+</p>
 
 ---
 
-## 📚 详细目录
+### 🔍 MyBatis 源码深度解析
 
-### 🌱 第一阶段：入门基础
+<table>
+<tr>
+<td width="120"><strong>📊 难度</strong></td>
+<td>🔴 高级</td>
+</tr>
+<tr>
+<td><strong>📚 文章数</strong></td>
+<td>5 篇</td>
+</tr>
+<tr>
+<td><strong>⏱️ 总时长</strong></td>
+<td>3 小时</td>
+</tr>
+<tr>
+<td><strong>🎯 适合人群</strong></td>
+<td>有 MyBatis 使用经验、想深入源码的开发者</td>
+</tr>
+</table>
 
-| 序号 | 章节 | 难度 | 时长 |
-|:----:|------|:----:|:----:|
-| 1.1 | [微服务架构概念](./docs/spring-cloud-guide/01-基础概念/01-微服务架构概念.md) | 🟢 入门 | 15 分钟 |
-| 1.2 | [Spring Cloud 2025.0 简介](./docs/spring-cloud-guide/01-基础概念/02-Spring-Cloud-2025.0-简介.md) | 🟢 入门 | 20 分钟 |
+深入 MyBatis 源码，从项目启动到 SQL 执行，逐层剖析其内部实现原理。采用三层解析法（宏观架构 → 模块职责 → 源码深入），助你彻底掌握 MyBatis 核心机制。
 
----
-
-### 🔧 第二阶段：环境搭建
-
-| 序号 | 章节 | 难度 | 时长 |
-|:----:|------|:----:|:----:|
-| 2.1 | [开发环境准备](./docs/spring-cloud-guide/02-环境搭建/01-开发环境准备.md) | 🟢 入门 | 25 分钟 |
-| 2.2 | [项目初始化](./docs/spring-cloud-guide/02-环境搭建/02-项目初始化.md) | 🟢 入门 | 20 分钟 |
-
----
-
-### 📦 第三阶段：核心组件
-
-| 序号 | 章节 | 难度 | 时长 |
-|:----:|------|:----:|:----:|
-| 3.1 | [Eureka 服务注册中心](./docs/spring-cloud-guide/03-服务注册与发现/01-Eureka-服务注册中心.md) | 🟡 进阶 | 30 分钟 |
-| 3.2 | [Eureka 服务提供者与消费者](./docs/spring-cloud-guide/03-服务注册与发现/02-Eureka-服务提供者与消费者.md) | 🟡 进阶 | 35 分钟 |
-| 4.1 | [Spring Cloud Config](./docs/spring-cloud-guide/04-配置中心/01-Spring-Cloud-Config.md) | 🟡 进阶 | 30 分钟 |
-| 5.1 | [Spring Cloud Gateway](./docs/spring-cloud-guide/05-服务网关/01-Spring-Cloud-Gateway.md) | 🟡 进阶 | 35 分钟 |
-| 6.1 | [OpenFeign 声明式服务调用](./docs/spring-cloud-guide/06-服务调用/01-OpenFeign-声明式服务调用.md) | 🟡 进阶 | 30 分钟 |
-| 7.1 | [Resilience4j 熔断器](./docs/spring-cloud-guide/07-熔断降级/01-Resilience4j-熔断器.md) | 🔴 高级 | 40 分钟 |
-| 8.1 | [分布式链路追踪](./docs/spring-cloud-guide/08-分布式追踪/01-分布式链路追踪.md) | 🔴 高级 | 35 分钟 |
+<p align="center">
+  <a href="./mybatis-source/README.md">
+    <strong>📖 开始学习 MyBatis 源码 →</strong>
+  </a>
+</p>
 
 ---
 
-### 🎯 第四阶段：实战项目
+## 📋 系列一览
 
-| 序号 | 章节 | 难度 | 时长 |
-|:----:|------|:----:|:----:|
-| 9.1 | [完整微服务项目实战](./docs/spring-cloud-guide/09-实战项目/01-完整微服务项目实战.md) | 🔴 高级 | 2 小时 |
-
----
-
-## 🚀 快速开始
-
-### 适合人群
-
-- 🌱 对微服务架构感兴趣的初学者
-- ☕ 希望学习 Spring Cloud 的 Java 开发者
-- 🔧 想要构建分布式系统的开发者
-
-### 前置要求
-
-- 基本的 Java 编程知识
-- 了解 Spring Boot 基础（可选，教程会简要介绍）
-- 一台可以联网的电脑
-
-### 开始学习
-
-1. 从 [微服务架构概念](./docs/spring-cloud-guide/01-基础概念/01-微服务架构概念.md) 开始
-2. 按照学习路线图顺序学习
-3. 每章都有代码示例，建议动手实践
-4. 遇到问题可以参考各章节的"常见问题"部分
+| 系列 | 难度 | 文章数 | 时长 | 状态 |
+|------|:----:|:------:|:----:|:----:|
+| [Spring Cloud 2025.0 新手引导](./spring-cloud-guide/README.md) | 🟢~🔴 | 13 | 7.5h | ✅ 完成 |
+| [MyBatis 源码深度解析](./mybatis-source/README.md) | 🔴 | 5 | 3h | ✅ 完成 |
 
 ---
 
@@ -128,8 +99,28 @@
 
 - **Spring Boot** 3.2.x
 - **Spring Cloud** 2025.0
+- **MyBatis** 3.5.x
 - **Java** 17+
-- **Maven** 3.6+
+
+---
+
+## 🚀 快速开始
+
+### 本地运行
+
+```bash
+# 克隆仓库
+git clone https://github.com/meolord/blog.git
+
+# 安装依赖
+bundle install
+
+# 启动本地服务
+bundle exec jekyll serve
+
+# 访问
+open http://localhost:4000
+```
 
 ---
 
@@ -137,11 +128,16 @@
 
 欢迎提交 Issue 和 Pull Request！
 
-如果这个教程对你有帮助，请给个 ⭐ Star 支持一下！
+如果这些教程对你有帮助，请给个 ⭐ Star 支持一下！
 
 ---
 
 <p align="center">
-  <strong>📖 开始学习：</strong>
-  <a href="./docs/spring-cloud-guide/01-基础概念/01-微服务架构概念.md">微服务架构概念 →</a>
+  <strong>🎯 选择一个系列开始学习吧！</strong>
+</p>
+
+<p align="center">
+  <a href="./spring-cloud-guide/README.md">Spring Cloud →</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="./mybatis-source/README.md">MyBatis 源码 →</a>
 </p>
