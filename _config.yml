@@ -1,5 +1,5 @@
-title: Spring Cloud 2025.0 新手引导
-description: 从零开始学习 Spring Cloud 2025.0 微服务架构
+title: 技术博客
+description: 深入浅出的技术教程 - Spring Cloud、MyBatis 源码解析等
 
 remote_theme: just-the-docs/just-the-docs
 
@@ -20,7 +20,7 @@ back_to_top_text: "返回顶部"
 nav_sort: case_insensitive
 
 # 页脚
-footer_content: "Copyright &copy; 2025 Spring Cloud 2025.0 新手引导. 基于 <a href=\"https://github.com/just-the-docs/just-the-docs\">Just the Docs</a> 主题."
+footer_content: "Copyright &copy; 2025 技术博客. 基于 <a href=\"https://github.com/just-the-docs/just-the-docs\">Just the Docs</a> 主题."
 
 # 辅助链接
 aux_links:
@@ -28,6 +28,10 @@ aux_links:
     - "https://github.com/meolord/blog"
 
 aux_links_new_tab: true
+
+# Mermaid 图表支持
+mermaid:
+  version: "10.6.0"
 
 # 插件
 plugins:
@@ -47,4 +51,4 @@ exclude:
   - node_modules/
   - vendor/
   - .gitignore
-  - README.md
+  - mybatis-3/
