@@ -518,7 +518,7 @@ JDBC（手动） → Hibernate（全自动） → MyBatis（半自动）
 
 <p align="center">
   ⬅️ <a href="../02-JDK5时代/03-SSH框架黄金组合.md">上一篇：SSH框架黄金组合</a> |
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="./02-Spring生态崛起.md">下一篇：Spring生态崛起</a> ➡️
 </p>
 

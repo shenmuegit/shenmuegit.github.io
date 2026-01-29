@@ -387,7 +387,7 @@ Servlet 阻塞 → WebFlux 响应式
 ---
 
 <p align="center">
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="../02-JDK5时代/01-泛型与注解革命.md">下一篇：泛型与注解革命</a> ➡️
 </p>
 

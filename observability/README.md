@@ -74,6 +74,6 @@
 ---
 
 <p align="center">
-  <a href="../README.md">⬅️ 返回博客主站</a>
+  <a href="../">⬅️ 返回博客主站</a>
 </p>
 

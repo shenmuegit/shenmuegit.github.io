@@ -713,7 +713,7 @@ Rod Johnson 的理念："J2EE 不需要 EJB"，倡导 POJO（Plain Old Java Obje
 
 <p align="center">
   ⬅️ <a href="./02-并发编程基石.md">上一篇：并发编程基石</a> |
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="../03-JDK6-7时代/01-ORM框架演进.md">下一篇：ORM框架演进</a> ➡️
 </p>
 

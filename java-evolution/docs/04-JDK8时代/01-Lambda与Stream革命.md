@@ -535,7 +535,7 @@ result = items.stream()
 
 <p align="center">
   ⬅️ <a href="../03-JDK6-7时代/03-Maven与工程化.md">上一篇：Maven与工程化</a> |
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="./02-SpringBoot破茧而出.md">下一篇：Spring Boot破茧而出</a> ➡️
 </p>
 

@@ -551,7 +551,7 @@ Struts ActionForm → Spring POJO
 
 <p align="center">
   ⬅️ <a href="./01-ORM框架演进.md">上一篇：ORM框架演进</a> |
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="./03-Maven与工程化.md">下一篇：Maven与工程化</a> ➡️
 </p>
 

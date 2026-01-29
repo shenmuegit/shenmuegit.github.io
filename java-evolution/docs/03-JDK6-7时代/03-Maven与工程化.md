@@ -595,7 +595,7 @@ Maven 的 XML 配置曾被诟病：
 
 <p align="center">
   ⬅️ <a href="./02-Spring生态崛起.md">上一篇：Spring生态崛起</a> |
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="../04-JDK8时代/01-Lambda与Stream革命.md">下一篇：Lambda与Stream革命</a> ➡️
 </p>
 

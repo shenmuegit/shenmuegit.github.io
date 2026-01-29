@@ -568,7 +568,7 @@ Spring Boot 的诞生源于 Pivotal 对云原生应用的愿景。
 
 <p align="center">
   ⬅️ <a href="./01-Lambda与Stream革命.md">上一篇：Lambda与Stream革命</a> |
-  🏠 <a href="../../README.md">返回目录</a> |
+  🏠 <a href="../../">返回目录</a> |
   <a href="./03-微服务框架涌现.md">下一篇：微服务框架涌现</a> ➡️
 </p>
 
