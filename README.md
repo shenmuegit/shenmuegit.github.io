@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/系列数-5-blue" alt="系列数">
-  <img src="https://img.shields.io/badge/总文章-40篇-green" alt="总文章">
-  <img src="https://img.shields.io/badge/总时长-24.5小时-orange" alt="总时长">
+  <img src="https://img.shields.io/badge/系列数-6-blue" alt="系列数">
+  <img src="https://img.shields.io/badge/总文章-41篇-green" alt="总文章">
+  <img src="https://img.shields.io/badge/总时长-26.5小时-orange" alt="总时长">
 </p>
 
 ---
@@ -169,6 +169,37 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 
 ---
 
+### 🧠 JVM 内存模型深度解析
+
+<table>
+<tr>
+<td width="120"><strong>📊 难度</strong></td>
+<td>🟢 入门 ~ 🟡 进阶</td>
+</tr>
+<tr>
+<td><strong>📚 文章数</strong></td>
+<td>1 篇</td>
+</tr>
+<tr>
+<td><strong>⏱️ 总时长</strong></td>
+<td>2 小时</td>
+</tr>
+<tr>
+<td><strong>🎯 适合人群</strong></td>
+<td>Java 开发者、JVM 初学者</td>
+</tr>
+</table>
+
+深入介绍 JDK 21 的 JVM 内存模型，从内存区域划分到对象布局，从垃圾回收机制到 Java 内存模型（JMM），帮助初学者全面理解 Java 程序的内存管理机制。
+
+<p align="center">
+  <a href="./jvm-memory-model/README.md">
+    <strong>📖 开始了解 JVM 内存模型 →</strong>
+  </a>
+</p>
+
+---
+
 ## 📋 系列一览
 
 | 系列 | 难度 | 文章数 | 时长 | 状态 |
@@ -178,6 +209,7 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 | [Prometheus 告警规则深度解析](./prometheus-alerts/README.md) | 🟡 | 1 | 45min | ✅ 完成 |
 | [可观测性实战](./observability/README.md) | 🟡 | 3 | 1.25h | ✅ 完成 |
 | [Java 技术生态演进](./java-evolution/README.md) | 🟢~🔴 | 18 | 12h | ✅ 完成 |
+| [JVM 内存模型深度解析](./jvm-memory-model/README.md) | 🟢~🟡 | 1 | 2h | ✅ 完成 |
 
 ---
 
@@ -245,4 +277,6 @@ open http://localhost:4000
   <a href="./observability/README.md">可观测性实战 →</a>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="./java-evolution/README.md">Java 技术演进 →</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="./jvm-memory-model/README.md">JVM 内存模型 →</a>
 </p>
