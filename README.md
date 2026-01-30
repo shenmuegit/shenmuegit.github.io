@@ -169,7 +169,7 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 
 ---
 
-### 🧠 JVM 内存模型深度解析
+### 🧠 JVM 内存模型
 
 <table>
 <tr>
@@ -240,7 +240,7 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 | [Prometheus 告警规则深度解析](./prometheus-alerts/README.md) | 🟡 | 1 | 45min | ✅ 完成 |
 | [可观测性实战](./observability/README.md) | 🟡 | 3 | 1.25h | ✅ 完成 |
 | [Java 技术生态演进](./java-evolution/README.md) | 🟢~🔴 | 18 | 12h | ✅ 完成 |
-| [JVM 内存模型深度解析](./jvm-memory-model/README.md) | 🟢~🟡 | 1 | 2h | ✅ 完成 |
+| [JVM 内存模型](./jvm-memory-model/README.md) | 🟢~🟡 | 1 | 2h | ✅ 完成 |
 | [Java 多线程与同步](./java-multithreading-sync/README.md) | 🟢~🔴 | 1 | 3h | ✅ 完成 |
 
 ---

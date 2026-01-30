@@ -1,4 +1,4 @@
-# 🧠 JVM 内存模型深度解析
+# 🧠 JVM 内存模型
 
 <p align="center">
   <img src="https://img.shields.io/badge/难度-入门~进阶-blue" alt="难度">
@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/JDK-21-red" alt="JDK版本">
 </p>
 
-欢迎来到 JVM 内存模型深度解析系列！本系列将深入介绍 JDK 21 的 JVM 内存模型，从内存区域划分到对象布局，从垃圾回收机制到 Java 内存模型（JMM），帮助初学者全面理解 Java 程序的内存管理机制。
+欢迎来到 JVM 内存模型系列！本系列将深入介绍 JDK 21 的 JVM 内存模型，从内存区域划分到对象布局，从垃圾回收机制到 Java 内存模型（JMM），帮助初学者全面理解 Java 程序的内存管理机制。
 
 ---
 
