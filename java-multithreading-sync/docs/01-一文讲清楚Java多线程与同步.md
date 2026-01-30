@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 一文讲清楚Java多线程与同步
-parent: Java 多线程与同步深度解析
+parent: Java 多线程与同步
 nav_order: 1
 ---
 

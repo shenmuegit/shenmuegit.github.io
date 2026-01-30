@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Java 多线程与同步深度解析
+title: Java 多线程与同步
 nav_order: 7
 has_children: true
 permalink: /java-multithreading-sync/docs/
 ---
 
-# Java 多线程与同步深度解析
+# Java 多线程与同步
 
 从多线程基础概念到 CPU 缓存系统，从伪共享问题到内存屏障，全面深入解析 Java 多线程编程的底层原理。
 

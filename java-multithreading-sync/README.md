@@ -1,4 +1,4 @@
-# 🔄 Java 多线程与同步深度解析
+# 🔄 Java 多线程与同步
 
 <p align="center">
   <img src="https://img.shields.io/badge/难度-入门~高级-blue" alt="难度">
@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Java-8~21-red" alt="Java版本">
 </p>
 
-欢迎来到 Java 多线程与同步深度解析系列！本系列将从多线程基础概念开始，深入探讨 CPU 缓存系统、伪共享问题、原子操作、CAS 机制、Lock-free 编程、内存屏障等核心概念，帮助开发者全面理解 Java 多线程编程的底层原理。
+欢迎来到 Java 多线程与同步系列！本系列将从多线程基础概念开始，深入探讨 CPU 缓存系统、伪共享问题、原子操作、CAS 机制、Lock-free 编程、内存屏障等核心概念，帮助开发者全面理解 Java 多线程编程的底层原理。
 
 ---
 
