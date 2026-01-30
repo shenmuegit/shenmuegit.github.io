@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/系列数-6-blue" alt="系列数">
-  <img src="https://img.shields.io/badge/总文章-41篇-green" alt="总文章">
-  <img src="https://img.shields.io/badge/总时长-26.5小时-orange" alt="总时长">
+  <img src="https://img.shields.io/badge/系列数-7-blue" alt="系列数">
+  <img src="https://img.shields.io/badge/总文章-42篇-green" alt="总文章">
+  <img src="https://img.shields.io/badge/总时长-29.5小时-orange" alt="总时长">
 </p>
 
 ---
@@ -200,6 +200,37 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 
 ---
 
+### 🔄 Java 多线程与同步深度解析
+
+<table>
+<tr>
+<td width="120"><strong>📊 难度</strong></td>
+<td>🟢 入门 ~ 🔴 高级</td>
+</tr>
+<tr>
+<td><strong>📚 文章数</strong></td>
+<td>1 篇</td>
+</tr>
+<tr>
+<td><strong>⏱️ 总时长</strong></td>
+<td>3 小时</td>
+</tr>
+<tr>
+<td><strong>🎯 适合人群</strong></td>
+<td>Java 开发者、并发编程学习者</td>
+</tr>
+</table>
+
+从多线程基础概念到 CPU 缓存系统，从伪共享问题到内存屏障，全面深入解析 Java 多线程编程的底层原理。每个概念都会从 Java 代码示例开始，逐步深入到字节码、JVM 实现和 CPU 指令级分析。
+
+<p align="center">
+  <a href="./java-multithreading-sync/README.md">
+    <strong>📖 开始学习 Java 多线程与同步 →</strong>
+  </a>
+</p>
+
+---
+
 ## 📋 系列一览
 
 | 系列 | 难度 | 文章数 | 时长 | 状态 |
@@ -210,6 +241,7 @@ OpenObserve + Vector 在 Kubernetes 上的日志采集实战。从架构设计�
 | [可观测性实战](./observability/README.md) | 🟡 | 3 | 1.25h | ✅ 完成 |
 | [Java 技术生态演进](./java-evolution/README.md) | 🟢~🔴 | 18 | 12h | ✅ 完成 |
 | [JVM 内存模型深度解析](./jvm-memory-model/README.md) | 🟢~🟡 | 1 | 2h | ✅ 完成 |
+| [Java 多线程与同步深度解析](./java-multithreading-sync/README.md) | 🟢~🔴 | 1 | 3h | ✅ 完成 |
 
 ---
 
@@ -279,4 +311,6 @@ open http://localhost:4000
   <a href="./java-evolution/README.md">Java 技术演进 →</a>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="./jvm-memory-model/README.md">JVM 内存模型 →</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="./java-multithreading-sync/README.md">多线程与同步 →</a>
 </p>
