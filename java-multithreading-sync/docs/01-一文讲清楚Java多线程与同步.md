@@ -184,12 +184,98 @@ public class TaskExample {
 }
 ```
 
+**线程拆分的两种方式**：
+
+为了提升处理速度，可以让多个线程在不同数据区段上执行相同（或相似）的计算逻辑，同样的处理逻辑可以有多个执行实例（线程），这对应**数据拆分线程**。当然，也可以为两个线程指定不同的入口函数，让各线程执行不同的计算逻辑，这对应**逻辑拆分线程**。
+
+**数据拆分线程示例**：
+
+```java
+public class DataSplitExample {
+    // 数组求和函数（逻辑）
+    public int sum(int[] a) {
+        int x = 0;
+        for (int i = 0; i < a.length; ++i) 
+            x += a[i];
+        return x;
+    }
+    
+    // 数据拆分：将大数组分成多个小数组，每个线程处理一部分
+    public int parallelSum(int[] array) throws InterruptedException {
+        int threadCount = 4;
+        int chunkSize = array.length / threadCount;
+        int[] results = new int[threadCount];
+        Thread[] threads = new Thread[threadCount];
+        
+        for (int i = 0; i < threadCount; i++) {
+            final int start = i * chunkSize;
+            final int end = (i == threadCount - 1) ? array.length : (i + 1) * chunkSize;
+            final int threadIndex = i;
+            
+            threads[i] = new Thread(() -> {
+                // 每个线程执行相同的逻辑（sum），但处理不同的数据区段
+                int sum = 0;
+                for (int j = start; j < end; j++) {
+                    sum += array[j];
+                }
+                results[threadIndex] = sum;
+            });
+            threads[i].start();
+        }
+        
+        // 等待所有线程完成
+        for (Thread t : threads) {
+            t.join();
+        }
+        
+        // 合并结果
+        int total = 0;
+        for (int result : results) {
+            total += result;
+        }
+        return total;
+    }
+}
+```
+
+**逻辑拆分线程示例**：
+
+```java
+public class LogicSplitExample {
+    // 不同的函数，执行不同的逻辑
+    public void producer() {
+        // 生产者逻辑：生成数据
+        while (true) {
+            // 生产数据
+        }
+    }
+    
+    public void consumer() {
+        // 消费者逻辑：消费数据
+        while (true) {
+            // 消费数据
+        }
+    }
+    
+    public void execute() {
+        // 逻辑拆分：不同线程执行不同的逻辑
+        Thread producerThread = new Thread(this::producer);
+        Thread consumerThread = new Thread(this::consumer);
+        
+        producerThread.start();
+        consumerThread.start();
+    }
+}
+```
+
 **关系总结**：
 
 | 概念 | 对应 | 说明 |
 |------|------|------|
 | **函数** | 逻辑 | 描述"做什么"和"怎么做"，是静态的设计 |
 | **线程** | 任务拆分 | 将工作分解为多个可并行执行的任务 |
+| **数据拆分** | 相同逻辑，不同数据 | 多个线程执行相同的函数，但处理不同的数据区段 |
+| **逻辑拆分** | 不同逻辑 | 不同线程执行不同的函数，执行不同的计算逻辑 |
 | **核心** | 硬件 | 实际执行任务的物理单元 |
 
 **线程生命周期**
@@ -347,8 +433,27 @@ stateDiagram-v2
 
 2. **写入操作**：
    - 如果缓存行状态为 E 或 M，直接写入缓存
-   - 如果状态为 S，需要先发送无效化消息给其他核心，将它们的缓存行状态改为 I，然后才能写入
+   - 如果状态为 S，需要先发送**无效化消息（Invalidate）**给其他核心，将它们的缓存行状态改为 I，然后才能写入
    - 如果状态为 I，需要先从主内存加载，然后写入
+
+**核间消息同步机制**：
+
+当 Core1 要修改一个状态为 Shared 的 Cache Line 时：
+1. Core1 发送核间通信消息（Invalidate 消息）到 Core2
+2. Core2 接收到消息后，将对应 Cache Line 的状态置为 Invalid
+3. Core1 获取该 Cache Line 的独占权（Exclusive），然后才能修改本地缓存
+4. 如果 Core2 后续需要访问这个 Cache Line，需要：
+   - 等待 Core1 将修改后的 Cache Line 冲刷（flush）到主内存
+   - 然后从主内存重新加载最新的数据
+
+**Cache Line 冲刷机制**：
+
+当 Core1 修改了状态为 Modified 的 Cache Line 后，如果其他核心需要访问：
+1. Core1 必须先将修改后的数据写回主内存
+2. 然后其他核心才能从主内存加载最新数据
+3. 这个过程称为 Cache Line 的冲刷（Flush）
+
+这种机制保证了多核缓存的一致性，但也带来了性能开销。
 
 ### 2.4 Java 程序与缓存交互
 
@@ -420,8 +525,9 @@ public class CacheCoherencyExample {
 3. 其他核心需要重新从主内存加载这个 Cache Line
 
 ```mermaid
-graph LR
+graph TB
     subgraph CL["Cache Line (64 字节)"]
+        direction LR
         V1["变量 x<br/>8 字节"]
         V2["变量 y<br/>8 字节"]
         PAD["填充<br/>48 字节"]
@@ -430,12 +536,15 @@ graph LR
     T1["线程 1<br/>修改 x"] --> V1
     T2["线程 2<br/>修改 y"] --> V2
     
-    V1 -.->|导致整个 Cache Line 失效| CL
-    V2 -.->|导致整个 Cache Line 失效| CL
+    NOTE["⚠️ 修改 x 或 y 都会导致<br/>整个 Cache Line 失效"]
+    
+    V1 -.-> NOTE
+    V2 -.-> NOTE
     
     style CL fill:#ff9999
     style V1 fill:#99ff99
     style V2 fill:#9999ff
+    style NOTE fill:#fff4e1
 ```
 
 ### 3.2 伪共享的 Java 示例
@@ -591,6 +700,52 @@ public class ContendedSolution {
 -XX:-RestrictContended
 ```
 
+**@Contended 的实现原理**：
+
+`@Contended` 注解类似于 Linux kernel 中的 `__cacheline_aligned_in_smp` 宏定义：
+
+```c
+// Linux kernel 中的实现（C 语言）
+#ifdef CONFIG_SMP
+#define __cacheline_aligned_in_smp __cacheline_aligned
+#else
+#define __cacheline_aligned_in_smp
+#endif
+
+struct Data {
+    int a;
+    int b __cacheline_aligned_in_smp;  // 在多核系统中，b 会按 Cache Line 对齐
+};
+```
+
+**Linux kernel 宏定义的说明**：
+
+从上面的宏定义可以看到：
+- **在多核系统（SMP）里**：该宏定义是 `__cacheline_aligned`，也就是 Cache Line 的大小（通常是 64 字节）
+- **在单核系统里**：该宏定义是空的，因为单核系统不存在伪共享问题
+
+在 Java 中，`@Contended` 的作用类似：
+- **多核系统**：JVM 会自动为标记了 `@Contended` 的字段添加填充，使其按 Cache Line 对齐
+- **单核系统**：填充可能被优化掉（因为单核不存在伪共享问题）
+
+**JVM 实现细节**：
+
+```java
+// JVM 内部处理 @Contended 的简化逻辑
+// 1. 识别 @Contended 注解
+// 2. 计算字段的内存偏移量
+// 3. 如果字段不在 Cache Line 边界，添加填充
+// 4. 确保相邻的 @Contended 字段在不同的 Cache Line 中
+```
+
+**@Contended 的填充策略**：
+
+JVM 在处理 `@Contended` 字段时：
+1. 计算字段的内存偏移量
+2. 如果字段不在 Cache Line 边界（64 字节对齐），添加填充
+3. 确保相邻的 `@Contended` 字段分布在不同的 Cache Line 中
+4. 默认填充大小为 128 字节（两个 Cache Line），可以通过 `-XX:ContendedPaddingWidth` 调整
+
 #### 方案 3：分离热点数据
 
 将经常被不同线程修改的变量分离到不同的对象中：
@@ -615,13 +770,213 @@ public class SeparationSolution {
 }
 ```
 
-### 3.5 性能优化建议
+### 3.5 另一个伪共享的例子
+
+假设有两个线程分别修改同一个对象的不同字段，如果这些字段在同一个 Cache Line 中，也会出现性能低下的情况：
+
+```java
+public class DataFalseSharing {
+    // 这两个字段可能在同一个 Cache Line 中
+    private volatile int a = 0;
+    private volatile int b = 0;
+    
+    public void thread1() {
+        a = 1;  // 线程 1 只修改 a
+    }
+    
+    public void thread2() {
+        b = 2;  // 线程 2 只修改 b
+    }
+}
+```
+
+**问题分析**：
+
+虽然两个线程修改的是不同的字段（`a` 和 `b`），但如果它们位于同一个 Cache Line（64 字节）中：
+
+1. 线程 1 修改 `a` 时，会导致整个 Cache Line 失效
+2. 线程 2 的缓存中的这个 Cache Line 被标记为 Invalid
+3. 线程 2 修改 `b` 时，需要重新从主内存加载 Cache Line
+4. 两个线程频繁地使对方的缓存失效，导致性能下降
+
+**解决方案**：使用 Padding 或 `@Contended`
+
+```java
+// 方案 1：手动 Padding
+public class DataPadding {
+    private volatile int a = 0;
+    private long p1, p2, p3, p4, p5, p6, p7;  // 56 字节填充
+    private volatile int b = 0;
+}
+
+// 方案 2：使用 @Contended
+import jdk.internal.vm.annotation.Contended;
+
+public class DataContended {
+    @Contended
+    private volatile int a = 0;
+    
+    @Contended
+    private volatile int b = 0;
+}
+```
+
+### 3.6 共享内存场景的伪共享分析
+
+在实际应用中，伪共享问题经常出现在共享内存或共享数据结构的场景中。让我们看一个更详细的例子：
+
+```java
+import java.util.concurrent.atomic.AtomicLong;
+
+public class SharedMemoryFalseSharing {
+    // 模拟共享内存区域
+    private static class SharedMemory {
+        // 假设这些字段在同一个 Cache Line 中
+        private volatile AtomicLong offset = new AtomicLong(0);  // 偏移量
+        private volatile long data1 = 0;   // 数据 1（在 offset + 8 字节位置）
+        private volatile long data2 = 0;   // 数据 2（在 offset + 16 字节位置）
+        // ... 其他字段
+    }
+    
+    private static final SharedMemory shm = new SharedMemory();
+    
+    // 线程 1：修改 offset（使用原子操作）
+    public static void thread1() {
+        for (int i = 0; i < 100_000_000; i++) {
+            // 相当于 C++ 中的 shm_offset.fetch_add(8)
+            shm.offset.getAndAdd(8);  // 原子地增加偏移量
+        }
+    }
+    
+    // 线程 2：修改 data1
+    public static void thread2() {
+        for (int i = 0; i < 100_000_000; i++) {
+            // 修改 data1，假设 data1 在 offset + 8 字节的位置
+            long currentOffset = shm.offset.get();
+            // 实际应用中，可能会根据 offset 计算 data1 的位置
+            shm.data1++;  // 修改数据 1
+        }
+    }
+}
+```
+
+**详细分析**：
+
+假设线程 1 运行在 Core1，线程 2 运行在 Core2，共享内存区域 `shm` 的布局如下：
+
+```
+Cache Line (64 字节)
++------------------+
+| offset (8 字节)  |  <- 线程 1 修改这里
++------------------+
+| data1 (8 字节)   |  <- 线程 2 修改这里
++------------------+
+| data2 (8 字节)   |
++------------------+
+| ... 其他数据 ... |
++------------------+
+```
+
+**执行过程分析**：
+
+假设共享内存区域 `shm` 的布局如下，`offset` 在内存偏移 0 的位置，`data1` 在偏移 8 字节的位置：
+
+```
+内存地址布局（简化）：
++------------------+
+| offset (0-7)     |  <- 线程 1 修改这里
++------------------+
+| data1 (8-15)     |  <- 线程 2 修改这里
++------------------+
+| data2 (16-23)    |
++------------------+
+| ...              |
++------------------+
+```
+
+1. **初始状态**：
+   - `shm` 的内存数据以 Cache Line 粒度被同时加载到 Core1 和 Core2 的缓存
+   - 因为被多核共享，该 Cache Line 被标注为 **Shared** 状态
+   - 假设初始 `offset = 64`（字节偏移量）
+
+2. **线程 1 第一次修改 offset**：
+   - 线程 1 执行 `shm.offset.getAndAdd(8)`，这是一个原子操作
+   - 操作返回当前值 64，并将 `offset` 增加到 72
+   - 要修改一个状态为 Shared 的 Cache Line，Core1 会发送**核间通信消息（Invalidate）**到 Core2
+   - Core1 获取该 Cache Line 的独占权（**Exclusive**），然后才能修改本地缓存
+   - Core2 的缓存行被置为 **Invalid**
+
+3. **线程 2 第一次修改 data1**：
+   - 线程 2 要修改 `data1`（位于内存偏移 8 字节的位置）
+   - 但因为 `data1` 和 `offset` 在同一个 Cache Line（64 字节）中
+   - 而这个 Cache Line 已被置为 Invalid，所以需要从内存重新加载
+   - 在此之前，Core1 需要把修改后的 Cache Line **冲刷（flush）**到主内存
+   - 线程 2 才能从主内存加载最新的数据（包含 `offset = 72`）
+
+4. **线程 1 第二次修改 offset**：
+   - 线程 1 再次执行 `shm.offset.getAndAdd(8)`
+   - 操作返回当前值 72，并将 `offset` 增加到 80
+   - Core1 发送 Invalidate 消息到 Core2
+   - Core2 的 Cache Line 再次被置为 Invalid
+
+5. **线程 2 第二次修改 data1**：
+   - 线程 2 要修改 `shm[72]` 位置的数据（根据新的 offset 计算）
+   - 因为 `shm[64]`（offset 所在位置）和 `shm[72]`（data1 所在位置）在同一个 Cache Line
+   - 而这个 Cache Line 又被置为 Invalid，所以需要从内存重新加载
+   - 在此之前，Core1 需要把 Cache Line 冲刷到内存
+   - 线程 2 才能加载最新的数据
+
+**关键观察**：
+
+- `offset` 从 64 → 72 → 80 递增
+- `data1` 位于内存偏移 8 字节的位置，与 `offset`（偏移 0）在同一个 Cache Line
+- 每次修改 `offset` 都会导致包含 `data1` 的整个 Cache Line 失效
+- 每次修改 `data1` 也会导致包含 `offset` 的整个 Cache Line 失效
+
+**性能影响分析**：
+
+这种交替执行模式相当于：
+- Core1 和 Core2 之间需要**频繁发送核间消息**（Invalidate 消息）
+- 收到消息的 Core 的 Cache Line 被置为无效（Invalid）
+- 需要**重新从内存加载数据到缓存**
+- 每次修改后都需要把缓存中的数据**刷入内存**
+
+**关键问题**：
+
+虽然 `offset` 和 `data1` 是不同的变量，但它们位于同一个 Cache Line（64 字节）中。CPU 以 Cache Line 为单位进行缓存管理，因此：
+- 修改 `offset` 会导致整个 Cache Line 失效
+- 修改 `data1` 也会导致整个 Cache Line 失效
+- 两个线程频繁地使对方的缓存失效
+
+这相当于**废弃掉了缓存**，因为每次读写都直接跟内存打交道，缓存的作用不复存在，这就是性能低下的原因。
+
+**伪共享的本质**：
+
+这种多核多线程程序，因为并发读写同一个 Cache Line 中的数据（临近位置的内存数据），导致 Cache Line 的频繁失效，内存的频繁 Load/Store，从而导致性能急剧下降的现象叫**伪共享（False Sharing）**，伪共享是性能杀手。
+
+### 3.7 性能优化建议
 
 | 场景 | 推荐方案 | 说明 |
 |------|---------|------|
 | JDK 8+ | `@Contended` | 最简单，JVM 自动处理 |
 | JDK 7 及以下 | 手动 Padding | 需要计算填充大小 |
 | 对象分离 | 分离热点数据 | 适合复杂场景 |
+| 共享内存 | 按 Cache Line 对齐 | 确保不同线程访问的数据在不同 Cache Line |
+
+**最佳实践**：
+
+1. **识别热点数据**：找出被不同线程频繁修改的字段
+2. **使用工具检测**：使用性能分析工具（如 perf、Intel VTune）检测伪共享
+3. **合理使用 Padding**：不要过度使用，会增加内存占用
+4. **优先使用 @Contended**：在 JDK 8+ 中，这是最简单有效的方法
+
+**避免伪共享的原则**：
+
+> 最快的同步就是没同步（The fastest synchronization of all is the kind that never takes place）
+> 
+> 最好的方式是避免共享（Share nothing is best）
+
+通过合理的数据结构设计，尽量避免不同线程访问同一个 Cache Line 中的数据，这是最根本的解决方案。
 
 ---
 
@@ -1850,6 +2205,170 @@ public class LockFreeLinkedList<T> {
 - 使用无锁数据结构
 - 避免伪共享
 - 合理使用 `volatile`
+
+### 7.9 非锁的线程安全做法
+
+除了使用锁和原子操作，还有一些非锁的方式可以实现线程安全或部分线程安全：
+
+#### 方案 1：使用副本（Copy-on-Write）
+
+通过创建数据的副本来避免共享：
+
+```java
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class CopyOnWriteExample {
+    // CopyOnWriteArrayList 内部使用副本机制
+    private final CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
+    
+    public void add(String item) {
+        list.add(item);  // 写操作会创建新副本
+    }
+    
+    public String get(int index) {
+        return list.get(index);  // 读操作无需同步
+    }
+}
+```
+
+**原理**：
+- 写操作时创建新的数组副本
+- 读操作直接访问当前数组，无需同步
+- 适合读多写少的场景
+
+#### 方案 2：线程局部变量（ThreadLocal）
+
+每个线程拥有自己的变量副本：
+
+```java
+public class ThreadLocalExample {
+    private static final ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+    
+    public void setValue(int value) {
+        threadLocal.set(value);  // 每个线程有独立的副本
+    }
+    
+    public int getValue() {
+        return threadLocal.get();  // 获取当前线程的副本
+    }
+    
+    public void remove() {
+        threadLocal.remove();  // 使用完后清理，避免内存泄漏
+    }
+}
+```
+
+**原理**：
+- 每个线程有独立的变量副本
+- 线程之间完全隔离，无需同步
+- 适合需要线程隔离的场景
+
+#### 方案 3：不可变对象（Immutable Objects）
+
+使用不可变对象，天然线程安全：
+
+```java
+// 不可变类
+public final class ImmutablePoint {
+    private final int x;
+    private final int y;
+    
+    public ImmutablePoint(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public int getX() {
+        return x;
+    }
+    
+    public int getY() {
+        return y;
+    }
+    
+    // 创建新对象而不是修改现有对象
+    public ImmutablePoint withX(int newX) {
+        return new ImmutablePoint(newX, this.y);
+    }
+    
+    public ImmutablePoint withY(int newY) {
+        return new ImmutablePoint(this.x, newY);
+    }
+}
+```
+
+**原理**：
+- 对象创建后不可修改
+- 多个线程可以安全地共享不可变对象
+- 无需任何同步机制
+
+#### 方案 4：消息传递（Message Passing）
+
+通过消息队列传递数据，避免直接共享：
+
+```java
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+public class MessagePassingExample {
+    private final BlockingQueue<String> queue = new LinkedBlockingQueue<>();
+    
+    // 生产者线程
+    public void produce(String message) throws InterruptedException {
+        queue.put(message);  // 通过队列传递消息
+    }
+    
+    // 消费者线程
+    public String consume() throws InterruptedException {
+        return queue.take();  // 从队列获取消息
+    }
+}
+```
+
+**原理**：
+- 线程之间通过消息队列通信
+- 避免直接共享可变状态
+- 适合生产者-消费者模式
+
+#### 方案 5：函数式编程风格
+
+使用函数式编程，避免可变状态：
+
+```java
+import java.util.stream.IntStream;
+
+public class FunctionalExample {
+    // 使用 Stream API，避免共享可变状态
+    public int sum(int[] array) {
+        return IntStream.of(array)
+                .parallel()  // 并行处理
+                .sum();      // 无状态操作，天然线程安全
+    }
+}
+```
+
+**原理**：
+- 使用无状态的函数式操作
+- 避免共享可变状态
+- 适合数据并行处理
+
+**非锁方案对比**：
+
+| 方案 | 适用场景 | 优点 | 缺点 |
+|------|---------|------|------|
+| **Copy-on-Write** | 读多写少 | 读操作无需同步 | 写操作开销大 |
+| **ThreadLocal** | 线程隔离 | 完全隔离，性能高 | 内存占用增加 |
+| **不可变对象** | 共享只读数据 | 天然线程安全 | 需要创建新对象 |
+| **消息传递** | 异步通信 | 解耦，易理解 | 需要额外的队列 |
+| **函数式编程** | 数据并行 | 无状态，易并行 | 需要改变编程风格 |
+
+**核心思想**：
+
+> 最快的同步就是没同步（The fastest synchronization of all is the kind that never takes place）
+> 
+> 最好的方式是避免共享（Share nothing is best）
+
+通过合理的设计，尽量避免在线程之间共享可变数据，这是最根本的线程安全方案。
 
 ---
 
